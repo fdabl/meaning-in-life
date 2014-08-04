@@ -1,0 +1,16 @@
+{
+  "name": "meaning-in-life-server",
+  "version": "0.0.1",
+  "description": "Meaning in Life questionnaire android app backend with nodejs, express and mysql",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Fabian Dablander",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.5.2",
+    "express": "^4.7.2",
+    "mysql": "^2.4.2"
+  }
+}

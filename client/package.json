@@ -1,0 +1,20 @@
+{
+  "name": "meaning-in-life-client",
+  "version": "0.0.1",
+  "description": "Meaning in Life questionnaire android app with cordova, backbone, browserify and jquery mobile",
+  "author": "Fabian Dablander",
+  "license": "MIT",
+  "devDependencies": {
+    "brfs": "^1.2.0",
+    "gulp": "^3.8.7",
+    "gulp-browserify": "^0.5.0",
+    "gulp-uglify": "^0.3.1",
+    "vinyl-source-stream": "^0.1.1",
+    "watchify": "^1.0.1"
+  },
+  "dependencies": {
+    "backbone": "^1.1.2",
+    "fastclick": "^1.0.3",
+    "lodash": "^2.4.1"
+  }
+}

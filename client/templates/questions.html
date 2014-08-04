@@ -1,0 +1,25 @@
+<div class="ui-content" id="enhance">
+	<ul data-role="listview" class="ui-listview" id="questions">
+
+		<% _.each(questions, function(question) { %>
+
+			<li>
+				<div class="ui-field-contain" style="display: block;">
+					<h2 style="white-space: normal;"><%= question[1] %>.</h2>
+					<select id="<%= question[0] %>" data-mini="true">
+						<option value="1">Absolutely Untrue</option>
+						<option value="2">Mostly Untrue</option>
+						<option value="3">Somewhat Untrue</option>
+						<option value="4" selected>Can't Say True or False</option>
+						<option value="5">Somewhat True</option>
+						<option value="6">Mostly True</option>
+						<option value="7">Absolutely True</option>
+					</select>
+				</div>
+			</li>
+
+		<% }); %>
+	</ul>
+
+	<button class="ui-btn" type="submit" id="submit">Submit</input>
+</div>
