@@ -4,7 +4,7 @@ var Backbone = require('backbone');
 var Participant = Backbone.Model.extend({
 
   // you need to provide the URL of your remote server
-  urlRoot: 'http://your-app.com',
+  urlRoot: 'http://your-app.com/api/participant',
 
   defaults: {
     'userTime': '',

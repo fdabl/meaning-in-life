@@ -48,6 +48,7 @@ var QuestionsView = Backbone.View.extend({
   },
 
   submit: function(ev) {
+    $.mobile.loading('true');
     var info = this.getInfo();
     var answers = $(':selected').map(function(i, el) {
       return $(el).val();
@@ -60,9 +61,11 @@ var QuestionsView = Backbone.View.extend({
 
     this.participant.save(info, {
       success: function(user, response, error) {
+        $.mobile.loading('hide');
         Backbone.history.navigate('debriefing', { trigger: true });
       },
       error: function(user, response, error) {
+        $.mobile.loading('hide');
         alert('There was a problem with the internet connection. Try it again later!');
         navigator.app.exitApp();
       }
