@@ -28,8 +28,7 @@ var QuestionsView = Backbone.View.extend({
   },
 
   events: {
-    'click #submit': 'submit',
-    'click #popupScale': 'popupScale'
+    'click #submit': 'submit'
   },
 
   render: function() {
@@ -48,7 +47,24 @@ var QuestionsView = Backbone.View.extend({
   },
 
   submit: function(ev) {
-    $.mobile.loading('true');
+    var self = this;
+    if ($('#locate').prop('checked')) {
+      var success = function(pos) {
+        self.post(pos.coords.latitude, pos.coords.longitude, pos.coords.accuracy);
+      };
+      var error = function(err) {
+        self.post(null, null, null);
+      };
+      navigator.geolocation.getCurrentPosition(success, error, { enableHighAccuracy: true });
+    } else {
+      this.post(null, null, null);
+    }
+  },
+
+  post: function(latitude, longitude, accuracy) {
+    // show loader widget
+    $.mobile.loading('show');
+
     var info = this.getInfo();
     var answers = $(':selected').map(function(i, el) {
       return $(el).val();
@@ -56,7 +72,11 @@ var QuestionsView = Backbone.View.extend({
 
     _.extend(info, {
       answers: answers,
-      theme: $('.page').data('theme')
+      theme: $('.page').data('theme'),
+      latitude: latitude,
+      longitude: longitude,
+      accuracy: accuracy,
+      guid: (typeof device !== 'undefined' ? device.uuid : 'web')
     });
 
     this.participant.save(info, {
@@ -70,7 +90,7 @@ var QuestionsView = Backbone.View.extend({
         navigator.app.exitApp();
       }
     });
-  },
+  }
 
 });
 

@@ -49,10 +49,11 @@ function handleDisconnect() {
 handleDisconnect(connection);
 
 connection.query(
-  'CREATE TABLE information ' + 
+  'CREATE TABLE IF NOT EXISTS information ' + 
   '(id MEDIUMINT NOT NULL AUTO_INCREMENT, ' +
-  'theme CHAR(1), userAgent VARCHAR(300), userTime VARCHAR(300), ' +
-  'windowSize VARCHAR(20), one INT, two INT, three INT, four INT, five INT, ' +
+  'guid VARCHAR(50), theme CHAR(1), userAgent VARCHAR(300), userTime VARCHAR(300), ' +
+  'windowSize VARCHAR(20), latitude FLOAT(10, 6), longitude FLOAT(10, 6), accuracy SMALLINT, ' +
+  'one INT, two INT, three INT, four INT, five INT, ' +
   'six INT, seven INT, eigth INT, nine INT, ten INT, PRIMARY KEY(id))',
   function(err, result) {
     if (err) throw err;
