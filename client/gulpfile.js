@@ -14,13 +14,13 @@ var options = {
 
 
 gulp.task('watch', function() {
-  var bundler = watchify('./client/main.js');
+  var bundler = watchify('./main.js');
   bundler.transform('brfs');
 
   function rebundle() {
     return bundler.bundle()
            .pipe(source('main.js'))
-           .pipe(gulp.dest('./client/static'));
+           .pipe(gulp.dest('./static'));
   }
 
   bundler.on('update', rebundle);
@@ -29,10 +29,10 @@ gulp.task('watch', function() {
 
 
 gulp.task('build', function() {
-  return gulp.src('./client/main.js')
+  return gulp.src('./main.js')
              .pipe(browserify(options))
              .pipe(uglify())
-             .pipe(gulp.dest('./client/static'));
+             .pipe(gulp.dest('./static'));
 });
 
 
