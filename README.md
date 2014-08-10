@@ -28,3 +28,8 @@ Plugins used are [device](https://github.com/apache/cordova-plugin-device) and [
 
 Run the remote server anywhere, but keep in mind that the endpoint that the client talks to must
 fit (see model/Participant.js)
+
+## Links
+
+You can find a mobile version of the thing [here](http://smartphone.dablscience.org).
+I put it on google play, see [here](https://play.google.com/store/apps/details?id=com.dablander.meaning)
